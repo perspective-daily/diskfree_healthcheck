@@ -1,0 +1,12 @@
+services:
+  app:
+    build: .
+    image: perspectivedaily/diskfree_healthcheck:0.1.0
+    #hostname: "{{.Node.ID}}"
+    hostname: myhostname
+    environment:
+      - SLEEP_TIME=3600
+      - THRESHOLD=90
+      #- HEALTHCHECK_URL=https://healthchecks.example.com/ping/slug/free_disk_{{HOSTNAME}}
+    volumes:
+      - /:/mnt/host:ro
